@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Maid Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      font-family: "Cardo", serif;
+      background-color: #F7FFF7;
+      color: #2D3436;
+    }
+    /* Hero Section with Blurred Background */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    #hero .bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px);
+      opacity: 0.6;
+      z-index: -1;
+      transition: all 0.5s ease;
+    }
+    #hero:hover .bg-overlay {
+      filter: blur(0);
+      opacity: 1;
+    }
+    #hero .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    #hero h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: 4rem;
+      color: #023D4D;
+      margin-bottom: 1rem;
+    }
+    #hero p {
+      font-size: 1.5rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    #hero .cta-button {
+      background-color: #FF6B6B;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    #hero .cta-button:hover {
+      background-color: #4ECDC4;
+    }
+    /* Navigation Bar */
+    header {
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: #023D4D;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #FF6B6B;
+    }
+    /* Other Sections */
+    .maid-card {
+      transition: all 0.3s ease;
+    }
+    .maid-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .testimonial-card {
+      background: #FEE2E2;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+    }
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: #FEE2E2;
+      border-radius: 20px;
+    }
+    /* Color Variables */
+    :root {
+      --primary-color: #FF6B6B; /* Soft Red */
+      --secondary-color: #4ECDC4; /* Teal */
+      --accent-color: #FFE66D; /* Yellow */
+      --bg-color: #F7FFF7; /* Light Background */
+      --text-color: #2D3436; /* Dark Text */
+    }
+    .bg-primary { background-color: var(--primary-color); }
+    .text-primary { color: var(--primary-color); }
+    .bg-secondary { background-color: var(--secondary-color); }
+    .text-secondary { color: var(--secondary-color); }
+    .bg-accent { background-color: var(--accent-color); }
+    .text-accent { color: var(--accent-color); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <img src="/images/logooo.png" alt="Global Maid Connect" class="h-16">
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="font-medium">Home</a>
+        <a href="#services" class="font-medium">Services</a>
+        <a href="#maids" class="font-medium">Find Maids</a>
+        <a href="#testimonials" class="font-medium">Testimonials</a>
+        <a href="#contact" class="font-medium">Contact</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden text-primary text-2xl">
+        <i class='bx bx-menu'></i>
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg transform translate-x-full transition-transform duration-300 md:hidden">
+      <div class="p-4 flex justify-between items-center border-b">
+        <img src="/images/logooo.png" alt="Logo" class="h-12">
+        <button id="close-menu" class="text-primary text-2xl"><i class='bx bx-x'></i></button>
+      </div>
+      <ul class="p-4 space-y-4">
+        <li><a href="#home" class="block text-primary hover:text-secondary">Home</a></li>
+        <li><a href="#services" class="block text-primary hover:text-secondary">Services</a></li>
+        <li><a href="#maids" class="block text-primary hover:text-secondary">Find Maids</a></li>
+        <li><a href="#testimonials" class="block text-primary hover:text-secondary">Testimonials</a></li>
+        <li><a href="#contact" class="block text-primary hover:text-secondary">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section with Blurred Background and Centered Cursive Text -->
+  <section id="hero" class="relative h-screen">
+    <div class="bg-overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Find Trusted Maids Worldwide™</h1>
+      <p>Professional maid services at your fingertips</p>
+      <a href="#services" class="cta-button">Request Maid Now</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-[#E5E7EB]">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl text-center text-primary mb-16 font-bold" data-aos="fade-up">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="service-card p-8 bg-white rounded-xl shadow-lg" data-aos="zoom-in">
+          <div class="service-icon flex items-center justify-center mb-6">
+            <i class='bx bx-brush-alt text-4xl text-primary'></i>
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-4">House Cleaning</h3>
+          <p class="text-gray-600">Expert cleaning services for your home</p>
+        </div>
+        <div class="service-card p-8 bg-white rounded-xl shadow-lg" data-aos="zoom-in">
+          <div class="service-icon flex items-center justify-center mb-6">
+            <i class='bx bx-child text-4xl text-primary'></i>
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-4">Child Care</h3>
+          <p class="text-gray-600">Reliable care for your little ones</p>
+        </div>
+        <div class="service-card p-8 bg-white rounded-xl shadow-lg" data-aos="zoom-in">
+          <div class="service-icon flex items-center justify-center mb-6">
+            <i class='bx bx-bowl-hot text-4xl text-primary'></i>
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-4">Cooking</h3>
+          <p class="text-gray-600">Delicious meals prepared daily</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Available Maids Section with Filters -->
+  <section id="maids" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl text-center text-primary mb-8 font-bold" data-aos="fade-up">Available Maids</h2>
+      <!-- Filter Section -->
+      <div class="flex flex-wrap justify-center mb-12 space-x-4">
+        <select id="country-filter" class="px-4 py-2 border border-primary rounded-lg">
+          <option value="">All Countries</option>
+          <option value="Philippines">Philippines</option>
+          <option value="India">India</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+        </select>
+        <select id="service-filter" class="px-4 py-2 border border-primary rounded-lg">
+          <option value="">All Services</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Child Care">Child Care</option>
+          <option value="Cooking">Cooking</option>
+        </select>
+      </div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide maid-card bg-white rounded-xl shadow-lg overflow-hidden" data-country="Philippines" data-service="Cleaning,Child Care">
+            <img src="/images/maid1.jpg" alt="Maid" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-primary">Maria Santos</h3>
+              <div class="flex items-center space-x-2 my-3">
+                <i class='bx bx-flag text-primary'></i>
+                <span>Philippines</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-[#FEE2E2] text-primary px-3 py-1 rounded-full text-sm">House Cleaning</span>
+                <span class="bg-[#FEE2E2] text-primary px-3 py-1 rounded-full text-sm">Child Care</span>
+              </div>
+              <div class="mb-4">
+                <p>Age: 28</p>
+                <p>Experience: 5 years</p>
+                <p>Rating: 4.8/5</p>
+                <p>Availability: Available</p>
+              </div>
+              <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">View Profile</button>
+            </div>
+          </div>
+          <div class="swiper-slide maid-card bg-white rounded-xl shadow-lg overflow-hidden" data-country="India" data-service="Cooking,Cleaning">
+            <img src="images/maid2.jpg" alt="Maid" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-primary">Priya Sharma</h3>
+              <div class="flex items-center space-x-2 my-3">
+                <i class='bx bx-flag text-primary'></i>
+                <span>India</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-[#FEE2E2] text-primary px-3 py-1 rounded-full text-sm">Cooking</span>
+                <span class="bg-[#FEE2E2] text-primary px-3 py-1 rounded-full text-sm">Cleaning</span>
+              </div>
+              <div class="mb-4">
+                <p>Age: 35</p>
+                <p>Experience: 10 years</p>
+                <p>Rating: 4.9/5</p>
+                <p>Availability: Available</p>
+              </div>
+              <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">View Profile</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev text-primary"></div>
+        <div class="swiper-button-next text-primary"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-[#FEE2E2]">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl text-center text-primary mb-16 font-bold" data-aos="fade-up">What Our Clients Say</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="testimonial-card" data-aos="fade-up">
+          <p class="italic">"The service was excellent! Found the perfect maid for my needs."</p>
+          <div class="mt-4 flex items-center">
+            <img src="/images/client1.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <p class="font-bold">John Doe</p>
+              <p class="text-sm">New York, USA</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up">
+          <p class="italic">"Highly recommend this agency. Professional and reliable maids."</p>
+          <div class="mt-4 flex items-center">
+            <img src="/images/client2.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <p class="font-bold">Jane Smith</p>
+              <p class="text-sm">London, UK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl text-primary mb-8 font-bold" data-aos="fade-up">Contact Us</h2>
+      <p class="text-lg mb-8">Have questions? Get in touch with us!</p>
+      <a href="mailto:info@globalmaidconnect.com" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-secondary transition">Email Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <img src="logo-white.png" class="h-16 mb-4">
+          <p class="opacity-75">Connecting families with trusted domestic helpers worldwide.</p>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#home" class="hover:underline">Home</a></li>
+            <li><a href="#services" class="hover:underline">Services</a></li>
+            <li><a href="#maids" class="hover:underline">Find Maids</a></li>
+            <li><a href="#testimonials" class="hover:underline">Testimonials</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Contact</h3>
+          <p>Email: info@globalmaidconnect.com</p>
+          <p>Phone: +123-456-7890</p>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-gray-200"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="hover:text-gray-200"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="hover:text-gray-200"><i class='bx bxl-instagram'></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/20 mt-12 pt-8 text-center opacity-75">
+        © 2025 Global Maid Connect. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Maid Request Popup Form -->
+  <div id="maid-request-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">×</span>
+      <h2 class="text-2xl font-bold text-primary mb-6">Request a Maid</h2>
+      <form id="maid-form" class="space-y-6">
+        <div>
+          <label class="block mb-2">Full Name</label>
+          <input type="text" class="w-full px-4 py-2 border border-primary rounded-lg" required>
+        </div>
+        <div>
+          <label class="block mb-2">Email</label>
+          <input type="email" class="w-full px-4 py-2 border border-primary rounded-lg" required>
+        </div>
+        <div>
+          <label class="block mb-2">Phone Number</label>
+          <input type="tel" class="w-full px-4 py-2 border border-primary rounded-lg" required>
+        </div>
+        <div>
+          <label class="block mb-2">Preferred Country</label>
+          <select class="w-full px-4 py-2 border border-primary rounded-lg" required>
+            <option value="">Select Country</option>
+            <option>Philippines</option>
+            <option>India</option>
+            <option>Indonesia</option>
+            <option>Sri Lanka</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-2">Required Services</label>
+          <div class="grid grid-cols-2 gap-4">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox text-primary">
+              <span>Cleaning</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox text-primary">
+              <span>Child Care</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox text-primary">
+              <span>Cooking</span>
+            </label>
+          </div>
+        </div>
+        <div>
+          <label class="block mb-2">Reason for Maid</label>
+          <textarea class="w-full px-4 py-2 border border-primary rounded-lg" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      slidesPerView: 1,
+      spaceBetween: 20,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const requestMaidBtn = document.getElementById('request-maid-btn');
+    const maidRequestPopup = document.getElementById('maid-request-popup');
+    const closePopup = document.querySelector('.close-popup');
+
+    menuToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+    closeMenu.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+    requestMaidBtn.addEventListener('click', () => maidRequestPopup.style.display = 'flex');
+    closePopup.addEventListener('click', () => maidRequestPopup.style.display = 'none');
+
+    const countryFilter = document.getElementById('country-filter');
+    const serviceFilter = document.getElementById('service-filter');
+    const maidCards = document.querySelectorAll('.maid-card');
+
+    countryFilter.addEventListener('change', filterMaids);
+    serviceFilter.addEventListener('change', filterMaids);
+
+    function filterMaids() {
+      const selectedCountry = countryFilter.value;
+      const selectedService = serviceFilter.value;
+
+      maidCards.forEach(card => {
+        const cardCountry = card.getAttribute('data-country');
+        const cardServices = card.getAttribute('data-service').split(',');
+
+        const countryMatch = selectedCountry === '' || cardCountry === selectedCountry;
+        const serviceMatch = selectedService === '' || cardServices.includes(selectedService);
+
+        card.style.display = countryMatch && serviceMatch ? 'block' : 'none';
+      });
+    }
+
+    document.getElementById('maid-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Request submitted successfully!');
+      maidRequestPopup.style.display = 'none';
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
