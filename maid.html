@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maria Santos Profile - Global Maid Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      font-family: "Cardo", serif;
+      background-color: #F7FFF7;
+      color: #2D3436;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
+    .thumbnail-slider .swiper-slide {
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .thumbnail-slider .swiper-slide-thumb-active {
+      opacity: 1;
+      border-color: #FF6B6B;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #FF6B6B !important;
+      padding: 20px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+    :root {
+      --primary-color: #FF6B6B;
+      --secondary-color: #4ECDC4;
+      --accent-color: #FFE66D;
+    }
+    .service-tag {
+      background: #FEE2E2;
+      color: #FF6B6B;
+      transition: all 0.2s ease;
+    }
+    .bg-primary { background-color: var(--primary-color); }
+    .text-primary { color: var(--primary-color); }
+    .bg-secondary { background-color: var(--secondary-color); }
+    .text-secondary { color: var(--secondary-color); }
+    .bg-accent { background-color: var(--accent-color); }
+    .text-accent { color: var(--accent-color); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <img src="./images/logooo.png" alt="Global Maid Connect" class="h-12 md:h-16">
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="font-medium hover:text-primary">Home</a>
+        <a href="index.html#services" class="font-medium hover:text-primary">Services</a>
+        <a href="index.html#maids" class="font-medium hover:text-primary">Find Maids</a>
+        <a href="index.html#testimonials" class="font-medium hover:text-primary">Testimonials</a>
+        <a href="index.html#contact" class="font-medium hover:text-primary">Contact</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden text-primary text-2xl">
+        <i class='bx bx-menu'></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg transform translate-x-full transition-transform duration-300 md:hidden">
+      <div class="p-4 flex justify-between items-center border-b">
+        <img src="./images/logooo.png" alt="Logo" class="h-12">
+        <button id="close-menu" class="text-primary text-2xl"><i class='bx bx-x'></i></button>
+      </div>
+      <ul class="p-4 space-y-4">
+        <li><a href="index.html#home" class="block text-primary hover:text-secondary">Home</a></li>
+        <li><a href="index.html#services" class="block text-primary hover:text-secondary">Services</a></li>
+        <li><a href="index.html#maids" class="block text-primary hover:text-secondary">Find Maids</a></li>
+        <li><a href="index.html#testimonials" class="block text-primary hover:text-secondary">Testimonials</a></li>
+        <li><a href="index.html#contact" class="block text-primary hover:text-secondary">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="py-4 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <!-- Image Slider -->
+        <div class="mb-12">
+          <div class="swiper main-slider h-96 mb-4 rounded-xl shadow-lg">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/maid1.jpg" class="w-full h-full object-cover" alt="Maria cleaning kitchen">
+              </div>              
+              <div class="swiper-slide">
+                <img src="./images/maid2.jpg" class="w-full h-full object-cover" alt="Maria with children">
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/maid3.jpg" class="w-full h-full object-cover" alt="Maria cooking">
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          
+        </div>
+
+        <!-- Profile Details -->
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h1 class="text-4xl font-bold text-primary mb-4">Maria Santos</h1>
+            <div class="flex items-center space-x-4 mb-6">
+              <div class="flex items-center space-x-2">
+                <i class='bx bx-flag text-primary text-xl'></i>
+                <span class="text-lg">From Philippines</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class='bx bx-star text-primary text-xl'></i>
+                <span class="text-lg">4.9/5 (86 reviews)</span>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h3 class="text-xl font-bold text-primary mb-4">Key Details</h3>
+              <ul class="space-y-3">
+                <li><strong>Age:</strong> 32 years</li>
+                <li><strong>Experience:</strong> 8+ years</li>
+                <li><strong>Availability:</strong> Immediate Joining</li>
+                <li><strong>Languages:</strong> English, Tagalog, Basic Arabic</li>
+                <li><strong>Vaccination:</strong> Fully Vaccinated</li>
+              </ul>
+            </div>
+
+            <div class="mb-8">
+              <h3 class="text-xl font-bold text-primary mb-4">Services Offered</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="service-tag px-4 py-2 rounded-full">Deep Cleaning</span>
+                <span class="service-tag px-4 py-2 rounded-full">Child Care</span>
+                <span class="service-tag px-4 py-2 rounded-full">Elderly Care</span>
+                <span class="service-tag px-4 py-2 rounded-full">Meal Preparation</span>
+                <span class="service-tag px-4 py-2 rounded-full">Pet Care</span>
+                <span class="service-tag px-4 py-2 rounded-full">Laundry Service</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-[#F7F7F7] p-8 rounded-xl">
+              <h3 class="text-2xl font-bold text-primary mb-6">About Maria</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                Professional housekeeper with 8+ years of international experience. Expert in maintaining 
+                spotless living environments while providing exceptional childcare services. Certified in 
+                First Aid, CPR, and Food Safety. Fluent in English with excellent communication skills. 
+                Known for reliability, attention to detail, and creating organized home spaces.
+              </p>
+
+              <div class="mb-8">
+                <h3 class="text-xl font-bold text-primary mb-4">Certifications</h3>
+                <ul class="space-y-2">
+                  <li>• International Housekeeping Certification</li>
+                  <li>• Pediatric First Aid & CPR</li>
+                  <li>• Food Handling Safety Course</li>
+                  <li>• Child Development Training</li>
+                </ul>
+              </div>
+
+              <div class="mt-8">
+                <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition">
+                  Schedule Interview
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-primary mb-8">Introduction Video</h3>
+            <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/5Peo-ivmupE?autoplay=0&modestbranding=1&rel=0&controls=1&showinfo=0&playsinline=1" 
+                    class="w-full h-64 md:h-96"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    loading="lazy"
+                    title="Maria's Introduction Video">
+                </iframe>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <img src="./images/logo-white.png" class="h-16 mb-4">
+          <p class="opacity-90">Your Trusted Partner in Household Solutions</p>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html#home" class="hover:underline">Home</a></li>
+            <li><a href="index.html#services" class="hover:underline">Services</a></li>
+            <li><a href="index.html#maids" class="hover:underline">Find Maids</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li>Email: contact@globalmaidconnect.com</li>
+            <li>Phone: +971 4 123 4567</li>
+            <li>Dubai, UAE</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Follow Us</h3>
+          <div class="flex space-x-4 text-2xl">
+            <a href="#" class="hover:text-secondary"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="hover:text-secondary"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="hover:text-secondary"><i class='bx bxl-linkedin'></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/20 mt-12 pt-8 text-center opacity-90">
+        © 2024 Global Maid Connect. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Swiper sliders
+    const mainSlider = new Swiper('.main-slider', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    const thumbnailSlider = new Swiper('.thumbnail-slider', {
+      loop: true,
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      slideToClickedSlide: true,
+    });
+
+    mainSlider.controller.control = thumbnailSlider;
+    thumbnailSlider.controller.control = mainSlider;
+
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+    });
+  </script>
+</body>
+</html>

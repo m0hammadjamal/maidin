@@ -282,7 +282,7 @@
                 <p>Rating: 4.8/5</p>
                 <p>Availability: Available</p>
               </div>
-              <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">View Profile</button>
+              <a href="maid.html" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">View Profile</a>
             </div>
           </div>
           <div class="swiper-slide maid-card bg-white rounded-xl shadow-lg overflow-hidden" data-country="India" data-service="Cooking,Cleaning">
@@ -303,7 +303,7 @@
                 <p>Rating: 4.9/5</p>
                 <p>Availability: Available</p>
               </div>
-              <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">View Profile</button>
+              <a href="maid.html" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition">View Profile</a>
             </div>
           </div>
         </div>
@@ -511,6 +511,10 @@
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    function viewProfile(maidId) {
+      window.location.href = `maid.html?id=${maidId}`;
+    }
   </script>
 </body>
 </html>
